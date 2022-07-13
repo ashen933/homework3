@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 from typing import Generator, List, Tuple
 
 
@@ -14,14 +14,13 @@ class Movie:
 
             d1 = i[0]
             d2 = i[1]
-            ls.extend([d1 + timedelta(days=x) for x in range((d2 - d1).days + 1)])
+            ls.extend(
+                [d1 + timedelta(days=x) for x in range((d2 - d1).days + 1)])
         return ls
 
 
-m = Movie('sw', [
-  (datetime(2020, 1, 1), datetime(2020, 1, 7)),
-  (datetime(2020, 1, 15), datetime(2020, 2, 7))
-])
+m = Movie('sw', [(datetime(2020, 1, 1), datetime(2020, 1, 7)),
+                 (datetime(2020, 1, 15), datetime(2020, 2, 7))])
 
 for d in m.schedule():
     print(d)
