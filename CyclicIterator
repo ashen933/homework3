@@ -1,11 +1,14 @@
 import copy
+
+
 class CyclicIterator:
     def __init__(self, c):
         self.c = list(c)
 
         self.copy = copy.deepcopy(self.c)
+
     def __iter__(self):
-        return  self
+        return self
 
     def __next__(self):
         if self.copy == []:
@@ -13,7 +16,6 @@ class CyclicIterator:
         i = self.copy[0]
         del self.copy[0]
         return i
-
 
 
 cyclic_iterator = CyclicIterator(range(3))
